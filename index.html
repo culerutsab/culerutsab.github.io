@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Utsab Bhattarai | Visual Designer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: #f5f5f5;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 28px 6vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            mix-blend-mode: difference;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            margin-left: 25px;
+            letter-spacing: 1px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 120px 7vw 80px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            animation: reveal 1.4s ease forwards;
+        }
+
+        .eyebrow {
+            color: #888;
+            font-size: 13px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 13vw, 190px);
+            line-height: 0.82;
+            letter-spacing: -8px;
+            font-weight: 700;
+        }
+
+        .hero-description {
+            max-width: 500px;
+            margin-top: 50px;
+            color: #999;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .scroll-text {
+            position: absolute;
+            bottom: 35px;
+            right: 7vw;
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            padding: 160px 7vw;
+        }
+
+        .section-title {
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #777;
+            margin-bottom: 80px;
+        }
+
+        .project {
+            min-height: 75vh;
+            margin-bottom: 150px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-image {
+            width: 65%;
+            height: 65vh;
+            background: linear-gradient(135deg, #222, #111);
+            overflow: hidden;
+            position: relative;
+        }
+        .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+        .project-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.08),
+                transparent 50%
+            );
+        }
+
+        .project-number {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #aaa;
+            z-index: 2;
+        }
+
+        .project-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(35px, 6vw, 90px);
+            font-weight: bold;
+            color: #333;
+            letter-spacing: -3px;
+        }
+
+        .project-info {
+            position: absolute;
+            right: 0;
+            bottom: 30px;
+            width: 38%;
+            background: #0d0d0d;
+            padding: 40px;
+            border: 1px solid #222;
+        }
+
+        .project-info h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .project-info p {
+            color: #888;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            padding: 160px 7vw;
+            border-top: 1px solid #1d1d1d;
+        }
+
+        .about-content {
+            max-width: 900px;
+        }
+
+        .about h2 {
+            font-size: clamp(45px, 7vw, 100px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            margin-bottom: 50px;
+        }
+
+        .about p {
+            max-width: 650px;
+            color: #999;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            min-height: 80vh;
+            padding: 160px 7vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-top: 1px solid #1d1d1d;
+        }
+
+        .contact-small {
+            color: #777;
+            font-size: 13px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+
+        .contact h2 {
+            font-size: clamp(55px, 10vw, 150px);
+            line-height: 0.85;
+            letter-spacing: -6px;
+            margin-bottom: 50px;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-bottom: 1px solid #555;
+            padding-bottom: 8px;
+            width: fit-content;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 7vw;
+            border-top: 1px solid #1d1d1d;
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        /* ANIMATION */
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 22px 6vw;
+            }
+
+            nav a {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 6vw 70px;
+            }
+
+            .hero h1 {
+                letter-spacing: -5px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+                margin-top: 35px;
+            }
+
+            .projects,
+            .about,
+            .contact {
+                padding-left: 6vw;
+                padding-right: 6vw;
+            }
+
+            .project {
+                min-height: auto;
+                display: block;
+                margin-bottom: 100px;
+            }
+
+            .project-image {
+                width: 100%;
+                height: 55vh;
+            }
+
+            .project-info {
+                position: relative;
+                width: 90%;
+                margin: -80px 0 0 auto;
+                z-index: 3;
+            }
+
+            .about h2 {
+                letter-spacing: -3px;
+            }
+
+            .contact h2 {
+                letter-spacing: -4px;
+            }
+
+            footer {
+                padding: 25px 6vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">UB.</div>
+
+        <div>
+            <a href="#work">WORK</a>
+            <a href="#about">ABOUT</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                VISUAL DESIGNER / DIGITAL CREATIVE
+            </p>
+
+            <h1>
+                UTSAB<br>
+                BHATTARAI
+            </h1>
+
+            <p class="hero-description">
+                Crafting visual experiences through design,
+                composition and digital creativity.
+            </p>
+
+        </div>
+
+        <div class="scroll-text">
+            SCROLL TO EXPLORE ↓
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section class="projects" id="work">
+
+        <p class="section-title">
+            SELECTED WORK / 001 — 005
+        </p>
+
+
+        <div class="project">
+
+            <div class="project-image">
+                <span class="project-number">01</span>
+
+                <img src="images/D1.jpeg" alt="Design 1">
+                    DESIGN
+                </div>
+            </div>
+
+            <div class="project-info">
+
+                <h2>Visual Identity</h2>
+
+                <p>
+                    A visual exploration combining typography,
+                    composition and contemporary graphic design.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-image">
+                <span class="project-number">02</span>
+
+                <img src="images/D2.jpg" alt="Design 2">
+                    POSTER
+                </div>
+            </div>
+
+            <div class="project-info">
+
+                <h2>Poster Design</h2>
+
+                <p>
+                    Experimental poster compositions created
+                    to communicate ideas through visual impact.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-image">
+                <span class="project-number">03</span>
+
+                <img src="images/D3.jpg" alt="Design 3">
+                    SOCIAL
+                </div>
+            </div>
+
+            <div class="project-info">
+
+                <h2>Digital Content</h2>
+
+                <p>
+                    Social media visuals designed with a focus
+                    on clarity, hierarchy and attention.
+                </p>
+
+            </div>
+
+        </div>
+            <div class="project">
+        <div class="project-image">
+            <span class="project-number">04</span>
+            <img src="images/D4.jpg" alt="Design 4">
+        </div>
+
+        <div class="project-info">
+            <h2>Creative Exploration</h2>
+            <p>
+                A visual experiment exploring composition,
+                contrast and contemporary design.
+            </p>
+        </div>
+    </div>
+
+    <div class="project">
+        <div class="project-image">
+            <span class="project-number">05</span>
+            <img src="images/D5.jpg" alt="Design 5">
+        </div>
+
+        <div class="project-info">
+            <h2>Visual Study</h2>
+            <p>
+                An experimental piece focused on visual
+                balance, structure and creative expression.
+            </p>
+        </div>
+    </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <p class="section-title">
+                ABOUT
+            </p>
+
+            <h2>
+                DESIGN IS HOW<br>
+                I THINK.
+            </h2>
+
+            <p>
+                I'm Utsab Bhattarai, a visual designer and digital
+                creative focused on turning ideas into visual
+                experiences. I work with composition, typography,
+                imagery and digital design to create work that feels
+                simple, intentional and memorable.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <p class="contact-small">
+            HAVE A PROJECT?
+        </p>
+
+        <h2>
+            LET'S<br>
+            CREATE.
+        </h2>
+
+        <a href="mailto:hello@example.com">
+            hello@example.com →
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>© 2026 UTSAB BHATTARAI</span>
+
+        <span>VISUAL DESIGNER</span>
+
+    </footer>
+
+
+</body>
+</html>
